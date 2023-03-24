@@ -7,3 +7,5 @@ for logger in LOGGING["loggers"].values():
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
+
+{{ patch("ecommerce-assets-theme-extras") }}
