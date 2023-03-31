@@ -92,3 +92,6 @@ EXTRA_PAYMENT_PROCESSOR_URLS["{{ payment_processor }}"] = "{{ urls_module }}"
 {% endfor %}
 
 {{ patch("ecommerce-settings-common") }}
+
+ENABLE_COMPREHENSIVE_THEMING = True
+COMPREHENSIVE_THEME_DIRS = ['/openedx/ecommerce-themes/openedx-themes/ecommerce/']

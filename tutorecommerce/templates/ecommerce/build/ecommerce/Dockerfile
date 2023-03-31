@@ -51,7 +51,12 @@ RUN cd /openedx/requirements/ \
 {% for extra_requirement in ECOMMERCE_EXTRA_PIP_REQUIREMENTS %}RUN pip install {{ extra_requirement }}
 {% endfor %}
 
-{{ patch("ecommerce-dockerfile-theme-extras") }}
+# {{ patch("ecommerce-dockerfile-theme-extras") }}
+# Clone openedx-themes\n"
+ARG THEMES_REPOSITORY=https://github.com/Pearson-Advance/openedx-themes.git
+ARG THEME_BRANCH=open-release/juniper.master
+RUN mkdir -p /openedx/ecommerce-themes
+RUN git clone --branch $THEME_BRANCH $THEMES_REPOSITORY --depth 1 /openedx/ecommerce-themes
 
 # Collect static assets (aka: "make static")
 COPY --chown=app:app assets.py ./ecommerce/settings/assets.py
