@@ -14,5 +14,3 @@ BACKEND_SERVICE_EDX_OAUTH2_KEY = "{{ ECOMMERCE_OAUTH2_KEY_DEV }}"
 
 {{ patch("ecommerce-settings-development") }}
 
-ENABLE_COMPREHENSIVE_THEMING = True
-COMPREHENSIVE_THEME_DIRS = ['/openedx/ecommerce-themes/openedx-themes/ecommerce/']
