@@ -23,7 +23,7 @@ ENV PATH /openedx/nodeenv/bin:${PATH}
 
 # Install ecommerce
 ARG ECOMMERCE_REPOSITORY={{ ECOMMERCE_REPOSITORY }}
-ARG ECOMMERCE_VERSION={{ ECOMMERCE_VERSION }}
+ARG ECOMMERCE_VERSION={{ ECOMMERCE_GIT_VERSION }}
 RUN mkdir -p /openedx/ecommerce && \
     git clone $ECOMMERCE_REPOSITORY --branch $ECOMMERCE_VERSION --depth 1 /openedx/ecommerce
 WORKDIR /openedx/ecommerce
