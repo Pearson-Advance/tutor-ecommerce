@@ -2,11 +2,13 @@ from ..devstack import *
 
 {% include "ecommerce/apps/ecommerce/settings/partials/common.py" %}
 
+{% if ECOMMERCE_MFE_APP and ECOMMERCE_PAYMENT_MFE_APP %}
 CORS_ORIGIN_WHITELIST = list(CORS_ORIGIN_WHITELIST) + [
     "http://{{ MFE_HOST }}:{{ ECOMMERCE_MFE_APP['port'] }}",
     "http://{{ MFE_HOST }}:{{ ECOMMERCE_PAYMENT_MFE_APP['port'] }}",
 ]
 CSRF_TRUSTED_ORIGINS = ["{{ MFE_HOST }}:{{ ECOMMERCE_MFE_APP['port'] }}"]
+{% endif %}
 
 SOCIAL_AUTH_EDX_OAUTH2_PUBLIC_URL_ROOT = "http://{{ LMS_HOST }}:8000"
 
