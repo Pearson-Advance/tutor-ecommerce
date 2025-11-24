@@ -11,8 +11,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 ###### Checkout code
 FROM minimal AS checkout
 
-ARG ECOMMERCE_REPOSITORY=https://github.com/openedx-unsupported/ecommerce.git
-ARG ECOMMERCE_VERSION='open-release/sumac.master'
+ARG ECOMMERCE_REPOSITORY=https://github.com/Pearson-Advance/ecommerce.git
+ARG ECOMMERCE_VERSION='pearson/ulmo'
 RUN mkdir -p /openedx/ecommerce && \
     git clone $ECOMMERCE_REPOSITORY --branch $ECOMMERCE_VERSION --depth 1 /openedx/ecommerce
 
