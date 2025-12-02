@@ -11,8 +11,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 ###### Checkout code
 FROM minimal AS checkout
 
-ARG ECOMMERCE_REPOSITORY=https://github.com/Pearson-Advance/ecommerce.git
-ARG ECOMMERCE_VERSION='pearson/ulmo'
+ARG ECOMMERCE_REPOSITORY={{ ECOMMERCE_REPOSITORY }}
+ARG ECOMMERCE_VERSION={{ ECOMMERCE_GIT_VERSION }}
 RUN mkdir -p /openedx/ecommerce && \
     git clone $ECOMMERCE_REPOSITORY --branch $ECOMMERCE_VERSION --depth 1 /openedx/ecommerce
 
@@ -96,7 +96,7 @@ RUN cd /openedx/requirements/ \
 RUN atlas pull --repository="{{ ATLAS_REPOSITORY }}" --revision="{{ ATLAS_REVISION }}" {{ ATLAS_OPTIONS }} translations/ecommerce/ecommerce/conf/locale:ecommerce/conf/locale
 RUN python manage.py compilemessages
 
-{{ patch("ecommerce-dockerfile-pre-assets") }}
+{{ patch("ecommerce-dockerfile-theme-extras") }}
 
 # Collect static assets (aka: "make static")
 COPY --chown=app:app assets.py ./ecommerce/settings/assets.py
