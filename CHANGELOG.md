@@ -18,6 +18,10 @@ instructions, because git commits are used to generate release notes:
 -->
 
 <!-- scriv-insert-here -->
+<a id='changelog-21.0.0'></a>
+## v21.0.0 (2026-01-25)
+
+- 💥[Feature] Upgrade to Ulmo.
 
 <a id='changelog-19.0.0'></a>
 ## v19.0.0 (2024-12-16)
